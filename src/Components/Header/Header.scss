@@ -1,0 +1,156 @@
+@use '../../variables.scss' as variables;
+
+
+.header {
+
+    background-color: variables.$bg-secondary-color;
+    color: variables.$text-primary-color;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 80px;
+
+    .menu {
+        @extend %flex-center;
+        gap: 20px;
+        position: relative;
+
+        img {
+            cursor: pointer;
+        }
+
+        p {
+            font-family: variables.$secondary-font-family;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 120%
+        }
+    }
+
+    .menu-open {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 20px;
+        @extend %text-p;
+        @extend %flex-center;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+
+        background-color: variables.$bg-primary-color;
+
+        a {
+            white-space: nowrap;
+            padding: 9px 12px;
+            width: 100%;
+            text-decoration: none;
+            color: variables.$text-primary-color;
+        }
+        a:nth-child(1) {
+            padding-top: 18px;
+        }
+        a:nth-child(4) {
+            padding-bottom: 18px;
+        }
+
+        a:hover {
+            background-color: variables.$bg-secondary-color;
+            color: variables.$text-secondary-color;
+        }
+
+    }
+    
+
+    .logo {
+        @extend %flex-center;
+        gap: 20px;
+
+        .logo-img {
+            cursor: pointer;
+        }
+
+        p {
+            font-family: variables.$primary-font-family;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 120%;
+            color: variables.$text-secondary-color;
+
+            br {
+                display: none;
+
+
+            }
+        }
+    }
+
+    .header-button {
+        @extend %button;
+        padding: 22px 30px;
+    }
+
+    .header-button-phone {
+        display: none;
+
+    }
+
+    @media screen and (max-width: variables.$media-tablet-width) {
+        padding: 40px 20px;
+
+        .logo {
+            p {
+                br {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: variables.$media-phone-width) {
+        padding: 35px 20px;
+
+        .menu {
+            p {
+                display: none;
+            }
+        }
+
+        .logo {
+            .logo-img {
+                max-width: 140px;
+            }
+
+            .logo-break {
+                display: none;
+            }
+
+            p {
+                display: none;
+            }
+        }
+
+        .header-button {
+            display: none;
+        }
+
+        .header-button-phone {
+
+            display: block;
+            border: 1.5px solid;
+            border-color: rgba(235, 184, 107, 1);
+            border-radius: 100px;
+            background-color: transparent;
+            color: variables.$text-primary-color;
+            font-family: variables.$secondary-font-family;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 120%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

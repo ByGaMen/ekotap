@@ -1,0 +1,147 @@
+@use '../../variables.scss' as variables;
+
+.contact-information {
+    display: flex;
+    font-family: variables.$primary-font-family;
+
+    .contact-information-location {
+        position: relative;
+
+        >img {
+            max-width: 1024px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .contact-information-location-addres {
+
+            position: absolute;
+            background: rgba(255, 255, 255, 1);
+            top: 34%;
+            left: 9%;
+
+            padding: 40px 30px;
+            max-width: 500px;
+            z-index: 6;
+
+            font-family: variables.$secondary-font-family;
+            line-height: 120%;
+
+            >h4 {
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+
+            >p {
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+        .contact-information-location-addres::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid rgba(255, 255, 255, 1);
+        }
+    }
+
+    .contact-information-personal {
+        @extend %flex-center;
+        flex-direction: column;
+        width: 100%;
+        color: variables.$text-primary-color;
+
+        .contact-information-personal-contact {
+            padding: 200px 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            >h2 {
+                font-size: 30px;
+            }
+        }
+
+        .contact-information-personal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: auto;
+            border-top: 1px solid rgba(66, 66, 69, 1);
+            padding: 45px 10%;
+
+            >p {
+                color: rgba(122, 120, 126, 1);
+                font-size: 16px;
+            }
+
+            .contact-information-personal-footer-images {
+                @extend %flex-center;
+                gap: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1600px) {
+        flex-direction: column;
+
+        .contact-information-location {
+            >img {
+                max-width: none;
+                width: 100%;
+            }
+
+            .contact-information-location-addres {
+                top: 25%;
+                left: 15%;
+            }
+
+            .contact-information-location-addres::after {
+                display: none;
+            }
+        }
+
+        .contact-information-personal {
+            .contact-information-personal-contact {
+                padding: 150px 10%;
+            }
+        }
+    }
+
+    @media screen and (max-width: variables.$media-phone-width) {
+
+
+        .contact-information-location {
+            .contact-information-location-addres {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 320px;
+            }
+        }
+
+        .contact-information-personal {
+            .contact-information-personal-contact {
+                padding: 50px 10%;
+            }
+
+            .contact-information-personal-footer {
+                flex-direction: column-reverse;
+                gap: 40px;
+                align-items: start;
+                .contact-information-personal-footer-images {
+                    align-self: start;
+                }
+            }
+        }
+    }
+}

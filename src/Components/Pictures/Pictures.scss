@@ -1,0 +1,68 @@
+@use '../../variables.scss' as variables;
+
+.pictures {
+    @extend %flex-center;
+    flex-direction: column;
+    padding: 150px 10%;
+    background: variables.$bg-secondary-color;
+
+    >h1 {
+        @extend %text-h1;
+        
+
+        span {
+            color: variables.$text-secondary-color;
+        }
+    }
+
+    >p {
+        @extend %text-p;
+        padding: 40px 0 60px;
+        text-align: center;
+    }
+
+    .pictures-grid {
+        display: grid;
+        grid-template: auto auto / auto auto;
+        grid-template-areas:
+            "img1 img2"
+            "img1 img3";
+        gap: 10px;
+
+        img:nth-child(1) {
+            grid-area: img1;
+        }
+
+        img:nth-child(2) {
+            grid-area: img2;
+        }
+
+        img:nth-child(3) {
+            grid-area: img3;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: variables.$media-tablet-width) {
+        padding: 150px 20px;
+    }
+
+    @media screen and (max-width: variables.$media-tablet-width) {
+        padding: 50px 20px;
+
+        >p {
+            padding: 30px 0 40px;
+        }
+
+        .pictures-grid {
+            grid-template: auto auto auto / auto;
+            grid-template-areas:
+                "img1"
+                "img2"
+                "img3";
+        }
+    }
+}

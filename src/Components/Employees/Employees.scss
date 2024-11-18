@@ -1,0 +1,40 @@
+@use '../../variables.scss' as variables;
+
+.employees {
+    @extend %flex-center;
+    flex-direction: column;
+    padding: 150px 10%;
+    background: variables.$bg-primary-color;
+
+    >h1 {
+        @extend %text-h1;
+    }
+
+    >p {
+        @extend %text-p;
+        padding: 40px 0 60px;
+        text-align: center;
+    }
+
+    .employees-grid {
+        display: grid;
+        grid-template: 1fr / 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0 10%;
+    }
+
+    @media screen and (max-width: 1600px) {
+        .employees-grid {
+            grid-template: 1fr 1fr / 1fr 1fr;
+            row-gap: 20px;
+        }
+    }
+    @media screen and (max-width: variables.$media-phone-width) {
+        padding: 50px 10% ;
+        .employees-grid {
+            grid-template: 1fr 1fr  1fr 1fr / 1fr;
+            padding: 0;
+        }
+    }
+
+}

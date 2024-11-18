@@ -1,0 +1,12 @@
+@use './variables.scss' as variables;
+
+.app {
+    max-width: 2560px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+}
+body {
+    background-color: variables.$bg-secondary-color;
+    
+}

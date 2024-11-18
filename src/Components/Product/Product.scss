@@ -1,0 +1,115 @@
+@use '../../variables.scss' as variables;
+
+.product {
+    background: variables.$bg-secondary-color;
+    font-family: variables.$primary-font-family;
+    color: variables.$text-primary-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 135px 0 150px;
+
+    >h1,
+    >p,
+    .product-points,
+    .product-scheme {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    span {
+        color: variables.$text-secondary-color;
+    }
+
+    >h1 {
+        @extend %text-h1;
+        padding-bottom: 50px;
+    }
+
+    >p {
+        @extend %text-p;
+    }
+
+    .product-points {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 80px;
+        padding-bottom: 100px;
+
+        img {
+
+            max-width: 580px;
+
+        }
+
+        .product-points__list {
+            max-width: 700px;
+            text-align: start;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .point {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                h2 {
+                    @extend %text-h2;
+                }
+
+                p {
+                    @extend %text-p;
+                }
+            }
+        }
+    }
+
+    .product-scheme {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1600px) {
+        padding: 150px 0 150px;
+
+        .product-points {
+            flex-direction: column;
+
+            .product-points__list {
+
+                max-width: none;
+
+            }
+        }
+
+        .product-scheme {
+            padding: 0;
+
+        }
+    }
+
+    @media screen and (max-width: variables.$media-phone-width) {
+        padding: 50px 0 50px;
+
+        >h1,
+        >p,
+        .product-points {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .product-points {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            gap: 80px;
+
+            >img {
+                max-width: 300px;
+            }
+        }
+    }
+}

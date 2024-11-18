@@ -1,0 +1,50 @@
+@use '../../variables.scss' as variables;
+
+.showcase {
+    @extend %flex-center;
+    flex-direction: column;
+    padding: 150px 10% 150px;
+    background: variables.$bg-secondary-color;
+
+    >h1 {
+        @extend %text-h1;
+        
+
+        span {
+            color: variables.$text-secondary-color;
+        }
+    }
+
+    >p {
+        @extend %text-p;
+        padding: 40px 0 85px;
+    }
+
+    .showcase-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+
+        @media screen and (max-width: 1400px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: variables.$media-tablet-width) {
+        padding: 150px 5% 150px;
+    }
+
+    @media screen and (max-width: variables.$media-phone-width) {
+        padding: 50px 5%;
+
+        >p {
+            padding: 30px 0 45px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 50px 0;
+    }
+}

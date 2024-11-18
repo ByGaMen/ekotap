@@ -1,0 +1,39 @@
+@use '../../variables.scss' as variables;
+
+.player {
+    font-family: variables.$primary-font-family;
+    color: variables.$text-primary-color;
+    @extend %flex-center;
+    background: variables.$bg-secondary-color;
+    flex-direction: column;
+    gap: 85px;
+    padding: 175px 20px;
+
+    h1 {
+        @extend %text-h1;
+
+        span {
+            color: variables.$text-secondary-color;
+        }
+    }
+
+    .video {
+        position: relative;
+
+        .video-player {
+            width: 100%;
+        }
+
+        .video-player__play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @media screen and (max-width: variables.$media-tablet-width) {
+        padding: 50px 20px;
+    }
+
+}

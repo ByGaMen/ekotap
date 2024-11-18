@@ -1,0 +1,134 @@
+@use '../../variables.scss' as variables;
+
+.filtration {
+
+
+    padding: 145px 10% 125px;
+    background-color: variables.$bg-secondary-color;
+    background-image: url('../../assets/Filtration/4.svg');
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position: 50% 90%;
+
+    >h1 {
+        @extend %text-h1;
+
+        span {
+            color: variables.$text-secondary-color;
+        }
+    }
+
+    >p {
+        @extend %text-p;
+        text-align: center;
+        padding: 40px 0 60px;
+    }
+
+    .filtration-images {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .wrapper {
+
+            >img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .filtration-images-stages {
+            flex: none;
+            display: grid;
+            grid-template: auto / repeat(4, auto);
+
+            >div:nth-child(1)>img {
+                z-index: 4;
+                position: relative;
+            }
+
+            >div:nth-child(2)>img {
+                z-index: 3;
+                position: relative;
+            }
+
+            >div:nth-child(3)>img {
+                z-index: 2;
+                position: relative;
+            }
+
+            >div:nth-child(4)>img {
+                z-index: 1;
+                position: relative;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1500px) {
+        .filtration-images {
+            flex-direction: column;
+            gap: 200px;
+        }
+    }
+
+    @media screen and (max-width: 1260px) {
+        padding: 150px 10% 150px;
+
+        .filtration-images {
+            .filtration-images-stages {
+                >div:nth-child(1) {
+                    .hover-description {
+                        left: 0;
+                    }
+
+                    .hover-description::after {
+                        left: 25%;
+                    }
+                }
+
+                >div:nth-child(4) {
+                    .hover-description {
+                        left: -100%;
+                    }
+
+                    .hover-description::after {
+                        left: 75%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: variables.$media-phone-width) {
+        padding: 50px 5% 50px;
+
+        >p {
+            padding: 30px 0 50px;
+        }
+
+        .filtration-images {
+            gap: 50px;
+
+            .filtration-images-stages {
+                grid-template: auto auto / auto auto;
+                row-gap: 50px;
+
+                >div:nth-child(1) {
+                    margin-left: 20px;
+                }
+
+                >div:nth-child(2) {
+                    margin: 0;
+                }
+
+                >div:nth-child(3) {
+                    margin-left: 20px;
+                }
+
+                >div:nth-child(4) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
